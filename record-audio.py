@@ -9,7 +9,7 @@ def record_audio(duration, audio_file_path):
 record_duration = 10
 
 # Generate a unique file name with timestamp
-timestamp = datetime.now().strftime("%d/%m-%H%M")
+timestamp = datetime.now().strftime("%d-%m-%H:%M")
 audio_file = f"/home/pi/audio_{timestamp}.wav"
 
 # Record Audio
