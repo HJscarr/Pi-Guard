@@ -5,6 +5,9 @@ from time import sleep
 pir = MotionSensor(4)
 buzzer = Buzzer(16)
 
+# Let the sensor settle
+sleep(3)
+
 # Main program
 try:
     while True:
