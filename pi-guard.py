@@ -33,7 +33,7 @@ def record_video(duration, video_file, frame_rate):
     print(f"Video file recorded at {video_file}")
 
 # Function to combine audio and video with specified frame rate
-def combine_audio_video(audio_file_path, video_file_path, final_output_path, frame_rate=12):
+def combine_audio_video(audio_file_path, video_file_path, final_output_path, frame_rate):
     command = [
         "ffmpeg", "-y",
         "-r", str(frame_rate),
@@ -48,7 +48,9 @@ def combine_audio_video(audio_file_path, video_file_path, final_output_path, fra
 
 def main():
     # Set a recording duration & then wait for motion...
-    record_duration = 10
+    duration = 10
+    frame_rate = 12
+    
     pir.wait_for_motion()
     print("Motion detected!!! Starting recording...")
 
@@ -58,14 +60,14 @@ def main():
     buzzer.off()
 
     # Generate unique file names with timestamp
-    timestamp = datetime.now().strftime("%d%m-%H%M")
-    audio_file = f"/home/pi/audio_{timestamp}.wav"
-    video_file = f"/home/pi/video_{timestamp}.h264"
-    final_output = f"/home/pi/output_{timestamp}.mp4"
+    timestamp = datetime.now().strftime("%d-%m-%H:%M")
+    audio_file = f"/home/js17/audio_{timestamp}.wav"
+    video_file = f"/home/js17/video_{timestamp}.h264"
+    final_output = f"/home/js17/output_{timestamp}.mp4"
 
     # Start recording
-    audio_thread = threading.Thread(target=record_audio, args=(record_duration, audio_file))
-    video_thread = threading.Thread(target=record_video, args=(record_duration, video_file))
+    audio_thread = threading.Thread(target=record_audio, args=(duration, audio_file))
+    video_thread = threading.Thread(target=record_video, args=(duration, video_file, frame_rate))
 
     audio_thread.start()
     video_thread.start()
@@ -74,7 +76,7 @@ def main():
     video_thread.join()
 
     # Combine audio and video
-    combine_audio_video(audio_file, video_file, final_output, frame_rate=12)
+    combine_audio_video(audio_file, video_file, final_output, frame_rate)
     print(f"Combined video file created at: {final_output}")
 
 # Start the program
