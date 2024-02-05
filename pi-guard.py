@@ -33,7 +33,7 @@ def record_video(duration, video_file, frame_rate):
     print(f"Video file recorded at {video_file}")
 
 # Function to combine audio and video with specified frame rate
-def combine_audio_video(audio_file_path, video_file_path, final_output_path, frame_rate=12):
+def combine_audio_video(audio_file_path, video_file_path, final_output_path, frame_rate):
     command = [
         "ffmpeg", "-y",
         "-r", str(frame_rate),
@@ -50,7 +50,11 @@ def main():
     # Set a recording duration & then wait for motion...
     duration = 10
     frame_rate = 12
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> a2015d6e66420b4f9ae8d2073b0e252deb2c6c69
     pir.wait_for_motion()
     print("Motion detected!!! Starting recording...")
 
@@ -80,4 +84,8 @@ def main():
     print(f"Combined video file created at: {final_output}")
 
 # Start the program
+<<<<<<< HEAD
 main()
+=======
+main()
+>>>>>>> a2015d6e66420b4f9ae8d2073b0e252deb2c6c69

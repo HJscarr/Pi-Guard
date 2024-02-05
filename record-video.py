@@ -46,4 +46,8 @@ mp4_video_file = f"/home/js17/video_{timestamp}.mp4"
 h264_video = record_video(duration, video_file, frame_rate)
 
 # Call convert to mp4 function, no need to save it as a variable as it has no return value
+<<<<<<< HEAD
 convert_to_mp4(h264_video)
+=======
+convert_to_mp4(h264_video)
+>>>>>>> a2015d6e66420b4f9ae8d2073b0e252deb2c6c69
