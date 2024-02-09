@@ -50,11 +50,6 @@ def main():
     # Set a recording duration & then wait for motion...
     duration = 10
     frame_rate = 12
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> a2015d6e66420b4f9ae8d2073b0e252deb2c6c69
     pir.wait_for_motion()
     print("Motion detected!!! Starting recording...")
 
@@ -84,8 +79,4 @@ def main():
     print(f"Combined video file created at: {final_output}")
 
 # Start the program
-<<<<<<< HEAD
 main()
-=======
-main()
->>>>>>> a2015d6e66420b4f9ae8d2073b0e252deb2c6c69
